@@ -1,0 +1,17 @@
+{
+  "name": "device",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web_server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^4.0.1",
+    "serve-index": "^1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
