@@ -1,23 +1,48 @@
 'use strict'
 
-if(!navigator.mediaDevices || 
-	!navigator.mediaDevices.getUserMedia){
-	console.log('getUserMedia is not support!');
-}else{
-	var constrants = {
-		video : true,
-		audio : true
-	}
-	navigator.mediaDevices.getUserMedia(constrants)
-				.then(getMediaStream)
-				.then(getDevice)
-				.catch(handleError);
-}
-
 var videoplay = document.getElementById("player");
 var audioSource = document.getElementById("audioSource");
 var audioOutput = document.getElementById("audioOutput");
 var videoSource = document.getElementById("videoSource");
+
+start();
+videoSource.onchange = start;
+
+function start(){
+
+if(!navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia){
+        console.log('getUserMedia is not support!');
+}else{
+	var deviceId = videoSource.value;
+        var constrants = {
+                video : {
+                        width: {
+				min:240,
+				max:640,
+			},
+                        height:{
+				min:180,
+				max:480
+			},
+                        frameRate: {
+				min:15,
+				max:30
+			},
+			deviceId: deviceId? deviceId:undefined
+                },
+                audio : {
+                        noiseSuppression:true,
+                        echoChncellation:true
+                }
+        }
+        navigator.mediaDevices.getUserMedia(constrants)
+                                .then(getMediaStream)
+                                .then(getDevice)
+                                .catch(handleError);
+}
+
+}
 
 function getMediaStream(stream){
 	videoplay.srcObject = stream;
