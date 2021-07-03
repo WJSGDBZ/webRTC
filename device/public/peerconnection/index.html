@@ -6,32 +6,90 @@
 
 	<body>
 		<div>
-
-
+                        <div>
+                                <label>Name:</label>
+                                <input type=text id="username" />
+			</div>
+			
+                       <div>
+                                <label>Room:</label>
+                                <input type=text id="room" />
+			</div>
+			
 			<div>
 				<button id="start">Start</button>	
-				<button id="call" disabled>Call</button>	
+				<!--<button id="call" disabled>Call</button>-->	
 				<button id="hangup" disabled>HangUp</button>	
+			</div>
+
+			<div>
+				<label>BandWidth:</label>
+				<select id='bandwidth' disabled>
+					<option value="unlimited" selected>unlimited</option>
+					<option value="2000">2000</option>
+					<option value="1000">1000</option>
+					<option value="500">500</option>
+					<option value="250">250</option>
+					<option value="125">125</option>
+
+				</select>
+				kbps
 			</div>
 
 			<div id="preview">
 				<div >
 					<h2>Local:</h2>
 					<video id="localVideo" autoplay playsinline></video>
-					<h2>Local SDP:</h2>
-					<textarea id="offer"></textarea>
 				</div>
 				<div>
 					<h2>Remote:</h2>
 					<video id="remoteVideo" autoplay playsinline></video>
-					<h2>Remote SDP:</h2>
-					<textarea id="answer"></textarea>
+					
 				</div>
 			</div>
+			
+	                <div>
+                        
+                                <div>
+                                <label>Content:</label><br>
+                                <textarea disabled id="chat"  rows="10" cols="30"></textarea>
+                                </div>
+                        
+                        
+                                <div>
+                                <label>Input:</label><br>
+                                <textarea disabled id="input" rows="2" cols="30" ></textarea>
+                               
+				</div>
+				<button disabled  id="send">Send</button>
+                        </div>  
+                
+		</div>
+	<div id="preview">
+		<div>
+                	<h2>Local SDP:</h2>
+                        <textarea id="offer"></textarea>
+		</div>
+		<div>
+			<h2>Remote SDP:</h2>
+                        <textarea id="answer"></textarea>
+		</div>
+	</div>
+	<div id="preview">
+		<div class="graph-container" id="bitrateGraph">
+			<div>Bitrate</div>
+			<canvas id="bitrateCanvas"></canvas>
 		</div>
 
+                <div class="graph-container" id="packetGraph">
+                        <div>Packets sent per second</div>
+                        <canvas id="packetCanvas"></canvas>
+                </div>
+	</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
 		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 		<script src="./main.js"></script>
+		<script src="./graph.js"></script>
 	</body>
 </html>
 
