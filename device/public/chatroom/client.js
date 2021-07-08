@@ -29,7 +29,7 @@ btnConnect.onclick = ()=>{
 		socket.disconnect();
         });
 
-        socket.on('message',(room,id,data)=>{
+        socket.on('message',(room,data)=>{
 		outContent.scrollTop = outContent.scrollHeight;
                 outContent.value = outContent.value + data + '\r';
 
