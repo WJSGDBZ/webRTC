@@ -31,10 +31,11 @@ log4js.configure({
 var logger = log4js.getLogger();
 
 var app = express();
-app.use(serveIndex('./public'));
-app.use(express.static('./public'));
-
-//var http_server = http.createServer(app);
+app.use(express.static('./public/peerconnection'));
+app.get('/index.html',function(req,resp){
+	resp.sendFile(__dirname + '/public/peerconnection/'+'index.html');
+});
+var http_server = http.createServer(app);
 //bind socket.io with http_server
 //var io = socketIO(http_server);
 
@@ -95,3 +96,5 @@ io.sockets.on('connection', (socket)=>{
 });
 
 https_server.listen(443,'0.0.0.0');
+http_server.listen(80,'0.0.0.0');
+

@@ -56,10 +56,12 @@ function call(){
 
 function dataChannelStateChange(e){
 	var state = dc.readyState;
+	console.log('dataChannel:',e);
 	if(state === 'open'){
 		input.disabled = false;
                 btnSend.disabled = false;		
 	}else{
+		dc = null;
                 input.disabled = true;
                 btnSend.disabled = true;
 	}
