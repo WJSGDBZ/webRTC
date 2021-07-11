@@ -62,6 +62,7 @@ function dataChannelStateChange(e){
 	}else{
                 input.disabled = true;
                 btnSend.disabled = true;
+		dc = null;
 	}
 }
 
