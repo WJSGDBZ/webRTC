@@ -69,6 +69,16 @@ div#preview > div {
   width: calc(50% - 12px);
 }
 
+#packetCanvas{
+  width:100%;
+}
+#bitrateCanvas{
+  width:100%;
+}
+.graph-container{
+  padding:0  100px 0 100px;
+}
+
 section#statistics div {
   display: inline-block;
   font-family: 'Inconsolata', 'Courier New', monospace;
@@ -124,3 +134,5 @@ video {
   }
 
 }
+
+
