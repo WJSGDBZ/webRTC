@@ -6,12 +6,13 @@
 
 	<body>
 		<div>
+
                         <div>
                                 <label>Name:</label>
                                 <input type=text id="username" />
 			</div>
 			
-                       <div>
+                        <div>
                                 <label>Room:</label>
                                 <input type=text id="room" />
 			</div>
@@ -23,6 +24,37 @@
 			</div>
 
 			<div>
+
+		        <table>
+                        	<tr>
+				<td>
+                        	<label>audio input device:</label>
+                                </td>
+                                <td>
+                        	<select id="audioSource"></select>
+                        	</td>
+				</tr>
+
+                        	<tr>
+				<td>
+                        	<label>audio output device:</label>
+				</td>
+				<td>
+                        	<select id="audioOutput"></select>
+                        	</td>
+				</tr>
+
+                                <tr>
+                                <td>
+                        	<label>video input device:</label>
+                                </td>
+                                <td>
+                        	<select id="videoSource"></select>
+                                </td>
+                                </tr>
+
+                	</table>
+
 				<label>BandWidth:</label>
 				<select id='bandwidth' disabled>
 					<option value="unlimited" selected>unlimited</option>
@@ -47,7 +79,8 @@
 					
 				</div>
 			</div>
-			
+			<div id="content">
+			<img src="./bg1.">	
 	                <div>
                         
                                 <div>
@@ -63,6 +96,7 @@
 				</div>
 				<button disabled  id="send">Send</button>
                         </div>  
+			</div>
                 
 		</div>
 	<div id="preview">

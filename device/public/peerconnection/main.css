@@ -4,6 +4,15 @@ button {
   width: 134px;
 }
 
+#content{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:100%;
+	margin:0 0 1em 0;
+	padding:0 0 0.5em 0;	
+}
+
 #preview textarea {
   color: #444;
   font-size: 0.9em;
@@ -42,6 +51,8 @@ div.output {
 }
 
 div#preview {
+  display:flex;
+  justify-content:space-around;
   border-bottom: 1px solid #eee;
   margin: 0 0 1em 0;
   padding: 0 0 0.5em 0;

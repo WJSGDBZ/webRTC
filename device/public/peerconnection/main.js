@@ -1,4 +1,9 @@
 'use strict'
+//device
+var audioSource = document.getElementById("audioSource");
+var audioOutput = document.getElementById("audioOutput");
+var videoSource = document.getElementById("videoSource");
+
 //video
 var localVideo = document.getElementById("localVideo");
 var remoteVideo = document.getElementById("remoteVideo");
@@ -236,6 +241,11 @@ function start(){
 		navigator.mediaDevices.getUserMedia(constraints)
 					.then(getMediaStream)
 					.catch(handleError);
+
+	        navigator.mediaDevices.enumerateDevices()
+        	        .then(getDevice)
+                	.catch(handleError);
+
 	}
 }
 
@@ -359,6 +369,26 @@ function changeBw(){
 		});
 
 }
+
+function getDevice(deviceInfos){
+        deviceInfos.forEach(function(deviceInfo){
+                console.log(deviceInfo.kind + "\nlabel = "
+                                + deviceInfo.label + "\nid = "
+                                + deviceInfo.deviceId + "\ngroupId = "
+                                + deviceInfo.groupId);
+                var option = document.createElement('option');
+                option.text = deviceInfo.label;
+                option.value = deviceInfo.deviceId;
+                if(deviceInfo.kind === 'audioinput'){
+                        audioSource.appendChild(option);
+                }else if(deviceInfo.kind === 'audiooutput'){
+                        audioOutput.appendChild(option);
+                }else if(deviceInfo.kind === 'videoinput'){
+                        videoSource.appendChild(option);
+                }
+        });
+}
+
 
 window.setInterval(()=>{
 	if(!pc){
